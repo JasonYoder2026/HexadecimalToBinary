@@ -12,7 +12,14 @@ int checkInput(char c) {
 }
 
 int hexToDeciaml(char c) {
+    int decimalValue;
+    if('0' <= c && c <= '9') {
+        decimalValue = c - '0';
+    } else {
+        decimalValue = c - '7';
+    }
 
+    return decimalValue;
 }
 
 
@@ -34,7 +41,8 @@ int main() {
             printf("Invalid entry, try again.");
             continue;
         } else {
-            printf("%c\n", input);
+            int decimal = hexToDeciaml(input);
+            printf("%d\n", decimal);
         }
     }
     return 0;
