@@ -11,7 +11,7 @@ int checkInput(char c) {
     }
 }
 
-int hexToDeciaml(char c) {
+int hexToDecimal(char c) {
     int decimalValue;
     if('0' <= c && c <= '9') {
         decimalValue = c - '0';
@@ -22,6 +22,13 @@ int hexToDeciaml(char c) {
     return decimalValue;
 }
 
+void decimalToBinary(int decimal) {
+    for (int i = 3; i >= 0; i--){
+        int bit = (decimal >> i) & 1;
+        printf("%d",bit);
+    }
+    printf("\n");
+}
 
 int main() {
 
@@ -41,8 +48,9 @@ int main() {
             printf("Invalid entry, try again.");
             continue;
         } else {
-            int decimal = hexToDeciaml(input);
-            printf("%d\n", decimal);
+            int decimal = hexToDecimal(input);
+            printf("Binary: ");
+            decimalToBinary(decimal);
         }
     }
     return 0;
